@@ -27,7 +27,7 @@ public class Statement
 
         double balance = calculateBalance(ammount,TypeOfTransaction.withdraw);
 
-        transaction.depositTransaction(ammount,balance,date);
+        transaction.withdrawTransaction(ammount,balance,date);
 
         transactionList.add(transaction);
 
@@ -46,21 +46,23 @@ public class Statement
         return balance;
     }
 
+    public String printer()
+    {
+
+        String statements = "              Date             Amount          Balance               Transaction\n";
+
+        for (int i = 0; i <transactionList.size() ; i++)
+        {
+
+           statements += transactionList.get(i).toString() + "\n";
+
+        }
+
+        return  statements;
+    }
 
 
 
-//    public void addStatement(double amount, LocalDate date)
-//    {
-//        Account account = new Account(new  Statement());
-//        account.amount=amount;
-//        account.date=date;
-//
-//        accountList.add(account);
-//
-//
-//    }
-//
-//    public List<Account>getAccountsList(){
-//        return accountList;
-//    }
+
+
 }

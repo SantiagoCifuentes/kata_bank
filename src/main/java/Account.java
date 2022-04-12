@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -28,6 +29,12 @@ public class Account
         LocalDate date1 = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         statement.registerWithdraw(amount,date1);
+    }
+
+    void printStatements(PrintStream out){
+        String statements = this.statement.printer();
+
+        System.out.println(statements);
     }
 
 
